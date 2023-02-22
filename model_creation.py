@@ -12,7 +12,6 @@ import torch.nn.functional as F
 import torch.optim as om
 import torchvision as tv
 from MedNetClass import MedNet
-from streamlit_front import run_streamlit
 
 if os.path.exists('saved_model.pt'):
     model: MedNet = torch.jit.load("saved_model.pt")
@@ -210,31 +209,31 @@ else:
     mp.tight_layout()
     mp.show()
 
-    # Enregistrer le modèle sur le disque
+    # Enregistrer le modï¿½le sur le disque
     scripted_model = torch.jit.script(model)
     scripted_model.save("saved_model.pt")
 
 
 # app = Flask(__name__)
 
-## Définir les classes de sortie
+## Dï¿½finir les classes de sortie
 # classes = {0: 'class1', 1: 'class2', 2: 'class3', 3: 'class4', 4: 'class5', 5: 'class6'}
 
-## Définir la page d'accueil de l'application
+## Dï¿½finir la page d'accueil de l'application
 # @app.route('/', methods=['GET', 'POST'])
 # def home():
 #    if request.method == 'POST':
-#        # Récupérer l'image téléchargée par l'utilisateur
+#        # Rï¿½cupï¿½rer l'image tï¿½lï¿½chargï¿½e par l'utilisateur
 #        file = request.files['file']
 #        img = Image.open(file)
 #        img = img.resize((224, 224))
 #        img = np.array(img) / 255.0
 
-#        # Faire une prédiction de classe avec le modèle de classification
+#        # Faire une prï¿½diction de classe avec le modï¿½le de classification
 #        pred = model.predict(np.array([img]))
 #        class_idx = np.argmax(pred)
 
-#        # Afficher la classe prédite sur la page résultante
+#        # Afficher la classe prï¿½dite sur la page rï¿½sultante
 #        return render_template('result.html', class_name=classes[class_idx])
 #    else:
 #        return render_template('home.html')
